@@ -1,0 +1,26 @@
+<div class="jumbotron" style="padding:45px 0px">
+    <h4 class="text-center">Lista zadań ucznia</h4>
+    <h6 class="text-center">Szkoły Podstawowej im. Janusza Korczaka w Małkocinie</h6>
+</div>
+
+<div class="input-group mb-3">
+    <input [(ngModel)]="newTask" [ngModelOptions]="{standalone: true}" type="text" value="" class="form-control" placeholder="Dodaj zadanie..." aria-describedby="basic-addon1" #itemTitle>
+    <div class="input-group-append hover-cursor" (click)="addToList()">
+        <i class="fa fa-plus-circle fa-1x input-group-text" id="basic-addon1"></i>
+    </div>
+</div>
+
+<div style="margin:5px 0px">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of items; let index = index">
+            <span class="hover-cursor">
+                <i class="fa fa-lg"></i>
+            </span>
+            {{item}}
+            <span class="hover-cursor text-danger pull-right" (click)="deleteTask(index)">
+                <i class="fa fa-trash-o fa-lg"></i>
+            </span>
+        </li>
+    </ul>
+</div>
+
